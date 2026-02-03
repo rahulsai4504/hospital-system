@@ -1,8 +1,9 @@
 # Logs
 *.log
 
-# Java compiled files
-*.class
-
-# Node dependencies
+# Node
 node_modules/
+dist/
+
+# Environment
+.env
