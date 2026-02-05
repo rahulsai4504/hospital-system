@@ -1,23 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
 function App() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleLogin(e) {
+    e.preventDefault();
+
+    if (!email || !password) {
+      alert("Please enter email and password");
+      return;
+    }
+
+    alert("Login successful!\nEmail: " + email);
+  }
+
   return (
-    <div>
-      <h2>Login Page</h2>
+    <div className="page">
+      <form className="login-card" onSubmit={handleLogin}>
+        <h2>Login</h2>
 
-      <label>Email</label><br />
-      <input type="text" /><br /><br />
+        <label>Email</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <label>Password</label><br />
-      <input type="password" /><br /><br />
+        <label>Password</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <button>Login</button>
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 }
 
 export default App;
-
